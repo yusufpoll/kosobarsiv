@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detay</title>
+</head>
+<body>
+
+<script>
+let data = JSON.parse(localStorage.getItem("arsivData"));
+
+const params = new URLSearchParams(window.location.search);
+const kod = params.get("kod");
+
+let item = data.find(x => x.kod === kod);
+
+document.body.innerHTML = `
+<h2>${item.kod}</h2>
+<p>${item.birim}</p>
+<p>${item.aciklama}</p>
+<p>${item.lokasyon}</p>
+<p>${item.yil}</p>
+`;
+</script>
+
+</body>
+</html>
